@@ -14,115 +14,132 @@ body {
 }
 
 .logo {
-    width: 70%;
+    width: 60%;
+    margin-bottom: 20%;
+    height: auto;
+    text-align: center;
+}
+.logo-bottom {
+    width: 40%;
+    height: auto;
     text-align: center;
 }
 
 .login-panel-container {
-    width: 50%;
+    width: 30%;
+    margin-bottom: 20%;
     display: flex;
     flex-direction: column;
+    
+    justify-content: start;
+
 }
 
 form.login {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     font-size: 1em;
-    align-items: center;
+    align-items: stretch;
     width: 80%;
     height: 50vh;
 }
 .welcome {
-    font-size: 4.5em;
+    font-size: 3.5rem;
+    padding-bottom: 0.3em;
 }
 
 .login-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    font-size: 1.2em;
 }
 .password-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    border: 10px;
+    font-size: 1.2em;
 }
 
 .small-text {
     color: #707070;
     text-decoration: underline;
+    padding-left: 50%;
     font-size: 0.7em;
 }
 
 button {
-    background: transparent linear-gradient(180deg,#9796F0  0%,#FFE5EC  100%) 0% 0% no-repeat padding-box;
+    background-color: rgba(255, 255, 255, 0.918);
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 19px;
     width: 50%;
     border: none;
-    color: white;
+    color: black;
     margin: 1em;
+    margin-left: 25%;
     line-height: 2.5em;
 }
 
 input {
     background-color: #332580 100%;
-    border: 10px;
-    border-bottom: 1px solid gray;
-    padding: 1em;
-    margin: 1em;
+    padding: 0.3em;
+    margin: 0.3em;
     width: 50%;
-}
-
-@media only screen and (max-device-width: 420px) {
-    .container {
-        flex-direction: column;
-    }
-    * {
-        font-size: 36px;
-    }
-    .login-panel-container,
-    .logo {
-        width: 100%;
-    }
-    form {
-        margin: auto;
-    }
-    img {
-        height: 7em;
-        margin: 2em;
-    }
+    
+    
+    border: 2px solid black;
 }
 
 .base-container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    flex-direction: column;
     height: 100vh;
+    background: transparent linear-gradient(180deg, #FFE5EC 0%, #9796F0 100%) 0% 0% no-repeat padding-box;
+    font-family: Segoe UI;
 }
 
 nav {
-    width: 20vw;
+    width: 100vw;
     height: 100%;
-    background: transparent linear-gradient(180deg, #FFE5EC 0%, #9796F0 100%) 0% 0% no-repeat padding-box;
+    background:#FFE5EC;
+    box-shadow: 0px 3px 6px 7px #00000048;
 }
 
 main {
-    width: 80vw;
+    width: 100vw;
 }
 
 nav {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: normal;
+    margin-right: 5%;
 }
 
+.left {
+    width: 85%;
+    margin-left: 5%;
+}
+.right {
+    display: flex;
+    flex-direction: row;
+    margin-right: 5%;
+}
+.chevron {
+    padding-top: 15%;
+    width: 100%;
+    height: 40%;
+}
 nav>img {
-    width: 60%;
-    margin: 2em auto;
+    width: 4%;
+    height: 10%;
+    
 }
 
 a {
@@ -183,6 +200,16 @@ header {
     border-bottom: 1px solid gray;
 }
 
+.company-info-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5%;
+}
+.kiosk-container {
+    margin-left: 10%;
+}
+
 .add-project {
     background: #2E6CD3 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
@@ -213,3 +240,35 @@ header {
     margin: 0;
     box-sizing: border-box;
 }
+
+@media only screen and (max-device-width: 420px) {
+    .container {
+        flex-direction: column;
+    }
+    *:not(.welcome) {
+        font-size: 48px;
+    }
+    .login-panel-container {
+        width: 100%;
+    }
+    .logo {
+        width: 100%;
+        margin-bottom: 0;
+    }
+    form {
+        margin: auto;
+    }
+    .company-info-container{
+        flex-direction: column;
+    }
+    nav>*>img {
+        width: 10%;
+        height: 10%;
+        
+    }
+    .company-info-container>*>img{
+        width: 10%;
+    }
+
+}
+
