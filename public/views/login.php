@@ -11,7 +11,15 @@
             <img src="public/img/logo.svg">
         </div>
         <div class="login-panel-container">
-            <form class="login">
+            <form class="login" action="login" method="POST">
+                <div class="messages">
+                    <?php if(isset($messages)){
+                        foreach ($messages as $message){
+                        echo $message;
+                        }
+                    }
+                    ?>
+                </div>
                 <div class="welcome">Welcome!</div>
                 <div class="login-container">
                     <div> email </div>
@@ -24,7 +32,7 @@
                 <div class="small-text">
                     <div>forgot password?</div>
                 </div>
-                <button>LOGIN</button>
+                <button type="submit" >LOGIN</button>
             </form>
         </div>
     </div>
