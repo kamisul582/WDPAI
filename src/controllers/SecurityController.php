@@ -6,7 +6,7 @@ class SecurityController extends AppController
 {
     public function login()
     {
-        $user = new User('test@test.abc', 'abc123','Jan', 'Kowalski');
+        $user = new User('a', 'a','Jan', 'Kowalski');
         
         if (!$this->isPost()) {
             return $this->render('login');
@@ -22,10 +22,14 @@ class SecurityController extends AppController
         if ($user->getPassword() !== $password) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
-            //return $this->render('kiosk_mode');
-        $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/kiosk_mode");
-        #var_dump($_POST);
+        
+        return $this->render('main_page',['messages' => ['Hello '.$user->getName().' '.$user->getSurname().'!']]);
+
+        //return $this->render('main_page',['messages' => ["John Smith"]]);
+
+        //$url = "http://$_SERVER[HTTP_HOST]";
+        //header("Location: {$url}/main_page");
+        //var_dump($_POST);
         
     }
 }

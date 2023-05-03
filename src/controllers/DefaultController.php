@@ -12,6 +12,10 @@ class DefaultController extends AppController {
     //{
     //    $this->render('login');
     //}
+    public function main_page()
+    {
+        $this->render('main_page');
+    }
     public function kiosk_mode()
     {
         $this->render('kiosk_mode');

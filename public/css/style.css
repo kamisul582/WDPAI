@@ -139,8 +139,14 @@ nav {
 }
 
 .left {
-    width: 85%;
+    width: 50%;
     margin-left: 5%;
+}
+.greeting {
+    font-family: Segoe UI;
+    font-size: 1.2em;
+    width: 150%;
+    justify-items: stretch;
 }
 .right {
     display: flex;
@@ -152,9 +158,12 @@ nav {
     width: 100%;
     height: 40%;
 }
-nav>img {
-    width: 4%;
-    height: 10%;
+nav>div>img {
+    object-fit: contain;
+   max-width: 100%;
+   max-height: 100%;
+   width: auto;
+   height: auto;
     
 }
 
@@ -281,7 +290,7 @@ header {
         width: 100%;
     }
     .logo {
-        width: 100%;
+        width: 40%;
         margin-bottom: 0;
     }
     form {
