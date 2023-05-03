@@ -20,9 +20,23 @@ body {
     text-align: center;
 }
 .logo-bottom {
-    width: 40%;
+    position: absolute;
+    bottom: 0;
+    width: 20%;
     height: auto;
-    text-align: center;
+    text-align: justify;
+    align-items: center;
+    margin-left: 40%;
+    margin-right: 30%;
+}
+.logo-bottom-right {
+    position: absolute;
+    bottom: 0;
+    width: 30%;
+    height: auto;
+    text-align: left;
+    align-items: center;
+    margin-bottom: 5%;
 }
 
 .login-panel-container {
@@ -112,6 +126,8 @@ nav {
 
 main {
     width: 100vw;
+    display: flex;
+    flex-direction: row;
 }
 
 nav {
@@ -192,13 +208,26 @@ main {
     flex-direction: column;
     height: 100vh;
 }
-
+.top-container {
+    display: flex;
+    flex-direction: row;
+}
 header {
     display: flex;
     justify-content: space-between;
     padding: 1em 2em;
     border-bottom: 1px solid gray;
 }
+.vertical-company-info-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.vertical-company-info-container>*{
+    margin-top: 25%;
+    margin-left: 200%;
+}
+
 
 .company-info-container{
     display: flex;
@@ -207,7 +236,7 @@ header {
     margin: 5%;
 }
 .kiosk-container {
-    margin-left: 10%;
+    margin-left: 60%;
 }
 
 .add-project {
