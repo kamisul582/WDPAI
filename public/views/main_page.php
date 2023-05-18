@@ -46,11 +46,9 @@
                 </div>
                     
                 </div>
-                <div class="kiosk-container">
-                    <div>Enter Kiosk code</div>
-                    <form>
-                        <input placeholder="Kiosk code">
-                    </form>
+                <?php if(isset($table))
+                            echo $table;
+                ?>
                 
                     <div class="logo-bottom-right">
                         <img src="public/img/logo.svg">
