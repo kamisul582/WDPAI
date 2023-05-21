@@ -70,7 +70,13 @@
                 </div>
                     
                 </div>
+<<<<<<< HEAD
                 
+=======
+                <?php if(isset($table))
+                            echo $table;
+                ?>
+>>>>>>> 4a911e2fd98a9c99aa22f66823116c567d5bcce9
                 
                     <div class="logo-bottom-right">
                         <img src="public/img/logo.svg">
