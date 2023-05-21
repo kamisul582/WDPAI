@@ -8,7 +8,7 @@
     <title>PROJECTS</title>
 </head>
 
-<body>
+<body onload="startTime()">
     <div class="base-container">
         <div class="top-bar-container">
             <nav>
@@ -37,24 +37,62 @@
             <div class="vertical-company-info-container">
                 <div class="time-container">
                     <img src="public/img/clock.png">
+                    <div id="txt"></div>
+                    <script>
+                        function startTime() {
+                          const today = new Date();
+                          let h = today.getHours();
+                          let m = today.getMinutes();
+                          let s = today.getSeconds();
+                          m = checkTime(m);
+                          s = checkTime(s);
+                          document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+                          setTimeout(startTime, 1000);
+                        }
+
+                        function checkTime(i) {
+                          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+                          return i;
+                        }
+                        </script>
                 </div>
                 <div class="company-name">
                     <img src="public/img/building-03.png">
+                    <?php if(isset($company_name)){
+                            echo $company_name;}
+                        ?>
                 </div>
                 <div class="company-address">
                     <img src="public/img/marker-pin-01.png">
+                    <?php if(isset($company_address)){
+                            echo $company_address;}
+                        ?>
                 </div>
                     
                 </div>
-                <div class="kiosk-container">
-                    <div>Enter Kiosk code</div>
-                    <form>
-                        <input placeholder="Kiosk code">
-                    </form>
+                
                 
                     <div class="logo-bottom-right">
                         <img src="public/img/logo.svg">
                     </div>
+                    <div class="work-time-table">
+                <?php if (1 > 0): ?>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><?php echo implode('</th><th>', array("Date","Time of punch in","Time of punch out","Total hours")); ?></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($table as $row): array_map('htmlentities', $row); ?>
+                                <tr>
+                                    <td><?php echo implode('</td><td>', $row); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php endif; ?>
+                </div>
                 </div>
             </div>
                 

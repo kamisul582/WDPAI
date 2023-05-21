@@ -78,6 +78,10 @@ form.login {
     font-size: 1.2em;
 }
 
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+  }
 .small-text {
     color: #707070;
     text-decoration: underline;
