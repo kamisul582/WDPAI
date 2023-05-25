@@ -9,4 +9,5 @@ Router::get('', 'DefaultController');
 Router::get('kiosk_mode', 'DefaultController');
 Router::get('main_page', 'DefaultController');
 Router::post('login', 'SecurityController');
+Router::post('punch_in', 'MainPageController');
 Router::run($path);

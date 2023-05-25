@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/kiosk_mode.css">
 
     <script src="https://kit.fontawesome.com/723297a893.js" crossorigin="anonymous"></script>
-    <title>PROJECTS</title>
+    <title>Attendance</title>
 </head>
 
 <body onload="startTime()">
@@ -34,6 +34,7 @@
        
         <main>
             <div class="top-container">
+            
             <div class="vertical-company-info-container">
                 <div class="time-container">
                     <img src="public/img/clock.png">
@@ -62,6 +63,16 @@
                             echo $company_name;}
                         ?>
                 </div>
+                <?php if(isset($time))
+                        {
+                            echo $time;
+                        }
+                ?>
+                <?php if(isset($date))
+                        {
+                            echo $date;
+                        }
+                ?>
                 <div class="company-address">
                     <img src="public/img/marker-pin-01.png">
                     <?php if(isset($company_address)){
@@ -70,17 +81,10 @@
                 </div>
                     
                 </div>
-<<<<<<< HEAD
                 
-=======
-                <?php if(isset($table))
-                            echo $table;
-                ?>
->>>>>>> 4a911e2fd98a9c99aa22f66823116c567d5bcce9
                 
-                    <div class="logo-bottom-right">
-                        <img src="public/img/logo.svg">
-                    </div>
+                
+                   
                     <div class="work-time-table">
                 <?php if (1 > 0): ?>
                     <table>
@@ -98,6 +102,12 @@
                         </tbody>
                     </table>
                 <?php endif; ?>
+                <form method="POST" action="punch_in">
+                    <button type="submit" name="myButton">Click Me</button>
+                </form>
+               
+                
+            </form>
                 </div>
                 </div>
             </div>

@@ -30,6 +30,9 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
         #var_dump($user);
+        session_start();
+        $_SESSION["loggedIn"] = true;
+        $_SESSION["email"] = $email;
         $workTimeRepostiory = new WorkTimeRepository();
         $table = $workTimeRepostiory->getWorkTimeTable($user->getUser_id());
         #var_dump($table);
