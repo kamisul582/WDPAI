@@ -20,4 +20,15 @@ class WorkTimeRepository extends Repository
         #var_dump($table);
         return $table;
     }
+     public function insertTime(int $user_id, $date, $time){
+        
+        $sql = "INSERT into public.work_time_table (user_id,_date,punch_in)
+                values (:user_id, :date, :time)";
+        $stmt = $this->database->connect()->prepare($sql);
+        #$stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
+        $stmt->execute(array('user_id' => $user_id, 'date' => $date, 'time' => $time,));
+     }
+     public function check_if_punched_in(){
+        $sql = "SELECT * FROM Table WHERE user_id = :user_id' ORDER BY ID DESC LIMIT 1";
+     }
 }
