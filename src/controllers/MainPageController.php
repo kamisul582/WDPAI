@@ -17,10 +17,10 @@ class MainPageController extends AppController {
         }
         $workTimeRepostiory = new WorkTimeRepository();
         $userRepository = new UserRepository();
+        $companiesRepository = new CompaniesRepository();
         $email = $_SESSION["email"];
         
         $user = $userRepository->getUser($email);
-        $workTimeRepostiory->check_if_punched_in($user->getUser_id());
         date_default_timezone_set('Europe/Warsaw');
         $time = date("h:i:s a");
         $date = date('d M');
@@ -28,20 +28,18 @@ class MainPageController extends AppController {
         $workTimeRepostiory->insertTime($user->getUser_id(),date('d M'),date("h:i:s a"),$workTimeRepostiory);
        
         
-       $this->render_base();
+       $this->render_base($workTimeRepostiory, $userRepository, $companiesRepository);
         
     }
-    public function render_base()
+    public function render_base($workTimeRepostiory, $userRepository, $companiesRepository)
     {
-        $userRepository = new UserRepository();
-        $companiesRepository = new CompaniesRepository();
-        $workTimeRepostiory = new WorkTimeRepository();
         $email = $_SESSION["email"];
         $user = $userRepository->getUser($email);
         $table = $workTimeRepostiory->getWorkTimeTable($user->getUser_id());
+        $punched_in = $workTimeRepostiory->check_if_punched_in($user->getUser_id());
         $greeting = 'Hello '.$user->getName().' '.$user->getSurname().'!';
         $company_info = array_values($companiesRepository->getCompany($user->getEmployer_id())[0]);
-        return $this->render('main_page',['messages' => [$greeting],'company_name' => $company_info[0],'company_address' => $company_info[1],'table' => $table, 'time'=> $time, 'date'=> $date]);
+        return $this->render('main_page',['messages' => [$greeting],'company_name' => $company_info[0],'company_address' => $company_info[1],'table' => $table, 'punched_in' => $punched_in]);
     }
     
 }

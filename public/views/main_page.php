@@ -36,6 +36,19 @@
             <div class="top-container">
             
             <div class="vertical-company-info-container">
+                
+                <div class="company-name">
+                    <img src="public/img/building-03.png">
+                    <?php if(isset($company_name)){
+                            echo $company_name;}
+                        ?>
+                </div>
+                <div class="company-address">
+                    <img src="public/img/marker-pin-01.png">
+                    <?php if(isset($company_address)){
+                            echo $company_address;}
+                        ?>
+                </div>
                 <div class="time-container">
                     <img src="public/img/clock.png">
                     <div id="txt"></div>
@@ -56,37 +69,19 @@
                           return i;
                         }
                         </script>
+                        <?php if ($punched_in): ?>
+                            <form  method="POST" action="punch_in">
+                                <button class= "red-button"type="submit" name="punch out">Punch out</button>
+                            </form>
+                        
+                        <?php else: ?>
+                            <form  method="POST" action="punch_in">
+                                <button class= "green-button" type="submit" name="punch in">Punch in</button>
+                            </form>
+                        <?php endif; ?>        
                 </div>
-                <div class="company-name">
-                    <img src="public/img/building-03.png">
-                    <?php if(isset($company_name)){
-                            echo $company_name;}
-                        ?>
-                </div>
-                <?php if(isset($time))
-                        {
-                            echo $time;
-                        }
-                ?>
-                <?php if(isset($date))
-                        {
-                            echo $date;
-                        }
-                ?>
-                <div class="company-address">
-                    <img src="public/img/marker-pin-01.png">
-                    <?php if(isset($company_address)){
-                            echo $company_address;}
-                        ?>
-                </div>
-                    
-                </div>
-                
-                
-                
-                   
-                    <div class="work-time-table">
-                <?php if (1 > 0): ?>
+                <div class="work-time-table">
+                <?php if (isset($table)): ?>
                     <table>
                         <thead>
                             <tr>
@@ -102,13 +97,19 @@
                         </tbody>
                     </table>
                 <?php endif; ?>
-                <form method="POST" action="punch_in">
-                    <button type="submit" name="myButton">Click Me</button>
-                </form>
+            </div>
+                </div>
+                
+                
+                
+                   
+            
+                
+                
                
                 
             </form>
-                </div>
+                
                 </div>
             </div>
                 

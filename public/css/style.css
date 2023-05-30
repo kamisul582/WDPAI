@@ -1,7 +1,10 @@
 body {
     margin: 0;
 }
-
+html *
+{
+   font-family: Arial !important;
+}
 .container {
     width: 100vw;
     height: 100vh;
@@ -77,7 +80,7 @@ form.login {
     align-items: center;
     font-size: 1.2em;
 }
-button {
+.green-button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -85,14 +88,51 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 24px;
     margin: 4px 2px;
     cursor: pointer;
 }
-
-table, th, td {
+.red-button {
+    background-color: #ff4949;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.work-time-table {
+    overflow-y: auto;
+    height: 200px;
+  }
+  .work-time-table thead th {
+    position: sticky;
+    top: 0px;
+  }
+th {
+    background: #f5f5f5;
+  }
+table {
+    width: 50%;
+    border: 1px solid #ffffff81;
+    border-collapse: collapse;
+    overflow: hidden;
+    white-space: nowrap;
+}
+tr:nth-child(even) {
+    background-color: #fff6f98c;
+}
+tr:nth-child(odd) {
+    background-color: #a3a3a350;
+}
+th, td {
     border: 1px solid;
     border-collapse: collapse;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
   }
 .small-text {
     color: #707070;
@@ -163,6 +203,7 @@ nav {
     font-size: 1.2em;
     width: 150%;
     justify-items: stretch;
+    white-space: nowrap;
 }
 .right {
     display: flex;
@@ -246,14 +287,22 @@ header {
 .vertical-company-info-container{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    /*justify-content: space-around;*/
 }
 .vertical-company-info-container>*{
-    margin-top: 25%;
-    margin-left: 200%;
+    margin-top: 5%;
+    margin-left: 5%;
 }
-
-
+.time-container, .company-name, .company-address {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    font-size: 24px;
+    display: inline-block;
+}
+.time-container{
+    white-space: normal !important;
+}
 .company-info-container{
     display: flex;
     flex-direction: row;
