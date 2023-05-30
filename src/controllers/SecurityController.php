@@ -41,8 +41,6 @@ class SecurityController extends AppController
         $company_info = array_values($companiesRepository->getCompany($user->getEmployer_id())[0]);
         #var_dump($company_info);
         $values = (array_values($company_info));
-        var_dump($values);
-        echo ("BBBBBBBBBBBBBB".$values[0]);
         #$this->render('main_page',['table' => [$table]]);
         return $this->render('main_page',['messages' => [$greeting],'company_name' => $company_info[0],'company_address' => $company_info[1],'table' => $table]);
         #return $this->render('main_page',['table' => $table]);

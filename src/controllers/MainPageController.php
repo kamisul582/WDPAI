@@ -5,7 +5,6 @@ require_once 'SecurityController.php';
 #require_once __DIR__.'/../repository/UserRepository.php';
 
 class MainPageController extends AppController {
-   
     public function punch_in()
     {  
         session_start();
@@ -19,11 +18,14 @@ class MainPageController extends AppController {
         $workTimeRepostiory = new WorkTimeRepository();
         $userRepository = new UserRepository();
         $email = $_SESSION["email"];
+        
         $user = $userRepository->getUser($email);
+        $workTimeRepostiory->check_if_punched_in($user->getUser_id());
         date_default_timezone_set('Europe/Warsaw');
         $time = date("h:i:s a");
         $date = date('d M');
-        $workTimeRepostiory->insertTime($user->getUser_id(),date('d M'),date("h:i:s a"));
+        
+        $workTimeRepostiory->insertTime($user->getUser_id(),date('d M'),date("h:i:s a"),$workTimeRepostiory);
        
         
        $this->render_base();
