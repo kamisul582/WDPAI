@@ -55,12 +55,15 @@
                     <script>
                         function startTime() {
                           const today = new Date();
+                          const options = { month: "long" };
+                          let month = new Intl.DateTimeFormat("en-US", options).format(today)
+                          let day = today.getDate();
                           let h = today.getHours();
                           let m = today.getMinutes();
                           let s = today.getSeconds();
                           m = checkTime(m);
                           s = checkTime(s);
-                          document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+                          document.getElementById('txt').innerHTML = month + " " + day + " " + h + ":" + m + ":" + s;
                           setTimeout(startTime, 1000);
                         }
 

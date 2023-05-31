@@ -29,4 +29,19 @@ class UserRepository extends Repository
             $user['employer_id']
         );
     }
+
+    public function addUser(User $user)
+    {
+        
+        $sql ='INSERT INTO public.users (email, password, name, surname, employer_id) VALUES (?, ?, ?, ?, ?)';
+        $stmt = $this->database->connect()->prepare($sql);
+
+        $stmt->execute([
+            $user->getEmail(),
+            $user->getPassword(),
+            $user->getName(),
+            $user->getSurname(),
+            $user->getEmployer_id(),
+        ]);
+    }
 }

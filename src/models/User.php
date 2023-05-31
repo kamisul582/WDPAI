@@ -40,6 +40,10 @@ class User
     {
         return $this->user_id;
     }
+    public function setUser_id($user_id)
+    {
+        $this->user_id = $user_id;
+    }
     public function getEmployer_id()
     {
         return $this->employer_id;
