@@ -83,6 +83,11 @@
                             </form>
                         <?php endif; ?>        
                 </div>
+                <div class="kiosk-code">
+                    <?php if(isset($kiosk_code)){
+                            echo $kiosk_code;}
+                        ?>
+                </div>
                 <div class="work-time-table">
                 <?php if (isset($table)): ?>
                     <table>

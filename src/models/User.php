@@ -7,8 +7,9 @@ class User
     private $name;
     private $surname;
     private $employer_id;
+    private $kiosk_code;
 
-    public function __construct(string $user_id, string $email,string $password,string $name,string $surname,string $employer_id)
+    public function __construct(string $user_id, string $email,string $password,string $name,string $surname,string $employer_id, string $kiosk_code)
     {
         $this->user_id = $user_id;
         $this->email = $email;
@@ -16,6 +17,7 @@ class User
         $this->name = $name;
         $this->surname = $surname;
         $this->employer_id = $employer_id;
+        $this->kiosk_code = $kiosk_code;
     }
     public function getEmail(): string 
     {
@@ -47,5 +49,10 @@ class User
     public function getEmployer_id()
     {
         return $this->employer_id;
+    }
+    
+    public function getKiosk_code()
+    {
+        return $this->kiosk_code;
     }
 }

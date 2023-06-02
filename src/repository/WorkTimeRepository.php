@@ -6,7 +6,7 @@ require_once __DIR__.'/../models/WorkTime.php';
 class WorkTimeRepository extends Repository
 {
 
-    public function getWorkTimeTable(int $user_id): array
+    public function getWorkTimeTable(int $user_id)
     {   $sql = 'SELECT _date,punch_in,punch_out,total_time FROM public.work_time_table WHERE user_id = :user_id ORDER BY entry_id';
         $stmt = $this->database->connect()->prepare($sql);
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);

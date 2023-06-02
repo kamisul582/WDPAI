@@ -5,7 +5,44 @@ require_once __DIR__.'/../models/User.php';
 
 class UserRepository extends Repository
 {
+    public function getAllUsers(string $email)
+    {
+        $stmt = $this->database->connect()->prepare('SELECT * FROM public.users');
+        #$stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
 
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($users == false) {
+            return null;
+        }
+        foreach ($users as $user){
+        $myUser = new User(
+            $user['user_id'],
+            $user['email'],
+            $user['password'],
+            $user['name'],
+            $user['surname'],
+            $user['employer_id'],
+            $user['kiosk_code']
+    
+        );
+        $this->setKioskCode($user['user_id']);
+        }
+         // Execute the SQL statement
+        $stmt->execute();
+    
+        // Fetch the result from the function
+        $result = $stmt->fetchColumn();
+    
+        // Display the result
+        echo "Returned value from the function: $result";
+    }
+    public function setKioskCode(int $user_id){
+        $sql = "UPDATE public.users SET kiosk_code = unique_random(8, 'users', 'kiosk_code') WHERE user_id = :user_id;";
+            $stmt = $this->database->connect()->prepare($sql);   
+            $stmt->execute(array('user_id' => $user_id));
+    }
     public function getUser(string $email): ?User
     {
         $stmt = $this->database->connect()->prepare('
@@ -26,7 +63,8 @@ class UserRepository extends Repository
             $user['password'],
             $user['name'],
             $user['surname'],
-            $user['employer_id']
+            $user['employer_id'],
+            $user['kiosk_code']
         );
     }
 

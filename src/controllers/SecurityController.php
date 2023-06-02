@@ -18,7 +18,7 @@ class SecurityController extends AppController
         }
 
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password = md5($_POST['password']);
 
         $user = $userRepository->getUser($email);
         if (!$user) {
@@ -34,6 +34,7 @@ class SecurityController extends AppController
         session_start();
         $_SESSION["loggedIn"] = true;
         $_SESSION["email"] = $email;
+        $userRepository->setKioskCode($user->getUser_id());
         $workTimeRepostiory = new WorkTimeRepository();
         $table = $workTimeRepostiory->getWorkTimeTable($user->getUser_id());
         $greeting = 'Hello '.$user->getName().' '.$user->getSurname().'!';

@@ -39,7 +39,9 @@ class MainPageController extends AppController {
         $punched_in = $workTimeRepostiory->check_if_punched_in($user->getUser_id());
         $greeting = 'Hello '.$user->getName().' '.$user->getSurname().'!';
         $company_info = array_values($companiesRepository->getCompany($user->getEmployer_id())[0]);
-        return $this->render('main_page',['messages' => [$greeting],'company_name' => $company_info[0],'company_address' => $company_info[1],'table' => $table, 'punched_in' => $punched_in]);
+        $kiosk_code = $user -> getKiosk_code();
+        #$userRepository->getAllUsers($email);
+        return $this->render('main_page',['messages' => [$greeting],'company_name' => $company_info[0],'company_address' => $company_info[1],'table' => $table, 'punched_in' => $punched_in,'kiosk_code' => $kiosk_code]);
     }
     
 }
