@@ -12,14 +12,7 @@
         </div>
         <div class="login-panel-container">
             <form class="login" action="login" method="POST">
-                <div class="messages">
-                    <?php if(isset($messages)){
-                        foreach ($messages as $message){
-                        echo $message;
-                        }
-                    }
-                    ?>
-                </div>
+                
                 <div class="welcome">Welcome!</div>
                 <div class="login-container">
                     <div> email </div>
@@ -33,6 +26,14 @@
                     <div>forgot password?</div>
                 </div>
                 <button type="submit" >LOGIN</button>
+                <div class="messages">
+                    <?php if(isset($messages)){
+                        foreach ($messages as $message){
+                        echo $message;
+                        }
+                    }
+                    ?>
+                </div>
             </form>
         </div>
     </div>

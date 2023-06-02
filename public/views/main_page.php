@@ -89,7 +89,7 @@
                         ?>
                 </div>
                 <div class="work-time-table">
-                <?php if (isset($table)): ?>
+                <?php if (isset($table) or True): ?>
                     <table>
                         <thead>
                             <tr>

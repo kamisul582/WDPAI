@@ -42,9 +42,7 @@ class WorkTimeRepository extends Repository
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
         $stmt->execute();
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
-        if (empty($row)) {
-            echo $sql;
-        }
+        
         if ((!is_null($row['punch_in']) and is_null($row['punch_out']) ))
             return TRUE;
         else 

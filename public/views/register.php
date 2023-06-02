@@ -13,14 +13,8 @@
         </div>
         <div class="login-panel-container">
             <form class="register" action="register" method="POST">
-                <div class="messages">
-                    <?php if(isset($messages)){
-                        foreach ($messages as $message){
-                        echo $message;
-                        }
-                    }
-                    ?>
-                </div>
+                
+                <div>AAAAAAAAAAA\n\n\n</div>
                 <input name="email" type="text" placeholder="email@email.com">
                 <input name="password" type="password" placeholder="password">
                 <input name="confirmedPassword" type="password" placeholder="confirm password">
@@ -29,6 +23,14 @@
                 <input name="employer_id" type="text" placeholder="employer ID">
                 <button type="submit">REGISTER</button>
             </form>
+            <div class="messages">
+                    <?php if(isset($messages)){
+                        foreach ($messages as $message){
+                        echo $message;
+                        }
+                    }
+                    ?>
+                </div>
         </div>
     </div>
 </body>

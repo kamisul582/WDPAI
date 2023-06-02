@@ -29,14 +29,10 @@ class UserRepository extends Repository
         );
         $this->setKioskCode($user['user_id']);
         }
-         // Execute the SQL statement
         $stmt->execute();
     
-        // Fetch the result from the function
         $result = $stmt->fetchColumn();
     
-        // Display the result
-        echo "Returned value from the function: $result";
     }
     public function setKioskCode(int $user_id){
         $sql = "UPDATE public.users SET kiosk_code = unique_random(8, 'users', 'kiosk_code') WHERE user_id = :user_id;";
@@ -71,7 +67,7 @@ class UserRepository extends Repository
     public function addUser(User $user)
     {
         
-        $sql ='INSERT INTO public.users (email, password, name, surname, employer_id) VALUES (?, ?, ?, ?, ?)';
+        $sql ='INSERT INTO public.users (email, password, name, surname, employer_id, kiosk_code) VALUES (?, ?, ?, ?, ?, ?)';
         $stmt = $this->database->connect()->prepare($sql);
 
         $stmt->execute([
@@ -80,6 +76,7 @@ class UserRepository extends Repository
             $user->getName(),
             $user->getSurname(),
             $user->getEmployer_id(),
+            $user->getKiosk_code(),
         ]);
     }
 }

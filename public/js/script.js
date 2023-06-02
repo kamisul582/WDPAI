@@ -5,6 +5,9 @@ const confirmedPasswordInput = form.querySelector('input[name="confirmedPassword
 function isEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
 }
+function isPasswordStrong(password) {
+    return /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password);
+}
 
 function arePasswordsSame(password, confirmedPassword) {
     return password === confirmedPassword;

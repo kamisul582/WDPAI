@@ -18,7 +18,7 @@ class SecurityController extends AppController
         }
 
         $email = $_POST['email'];
-        $password = md5($_POST['password']);
+        $password = sha1($_POST['password']);
 
         $user = $userRepository->getUser($email);
         if (!$user) {
@@ -63,8 +63,7 @@ class SecurityController extends AppController
         }
         $userRepository = new UserRepository();
         //TODO try to use better hash function
-        $tmp_id = 17; //real id will be set by DB autoincrement
-        $user = new User($tmp_id,$email, md5($password), $name, $surname, $employer_id);
+        $user = new User(1,$email, sha1($password), $name, $surname, $employer_id,"abcd");
         var_dump($user);
 
         $userRepository->addUser($user);
