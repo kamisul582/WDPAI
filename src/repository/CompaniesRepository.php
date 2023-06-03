@@ -20,4 +20,20 @@ class CompaniesRepository extends Repository
         #var_dump($table);
         return $table;
     }
+
+    public function addCompany(User $user)
+    {
+        
+        $sql ='INSERT INTO public.companies (email, password, name, surname, employer_id, kiosk_code) VALUES (?, ?, ?, ?, ?, ?)';
+        $stmt = $this->database->connect()->prepare($sql);
+
+        $stmt->execute([
+            $user->getEmail(),
+            $user->getPassword(),
+            $user->getName(),
+            $user->getSurname(),
+            $user->getEmployer_id(),
+            $user->getKiosk_code(),
+        ]);
+    }
 }

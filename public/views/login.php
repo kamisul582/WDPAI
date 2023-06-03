@@ -25,7 +25,12 @@
                 <div class="small-text">
                     <div>forgot password?</div>
                 </div>
+                
+                
                 <button type="submit" >LOGIN</button>
+                <div class="register-link">
+                    <a href="register">Register here</a>
+                </div>
                 <div class="messages">
                     <?php if(isset($messages)){
                         foreach ($messages as $message){

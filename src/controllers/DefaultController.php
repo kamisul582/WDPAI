@@ -24,4 +24,5 @@ class DefaultController extends AppController {
     {
         $this->render('kiosk_mode');
     }
+    
 }
