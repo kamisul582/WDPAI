@@ -7,9 +7,55 @@ require_once __DIR__.'/../repository/UserRepository.php';
 require_once __DIR__.'/../repository/WorkTimeRepository.php';
 require_once __DIR__.'/../repository/CompaniesRepository.php';
 class SecurityController extends AppController
-{
+{   
+    public function login_trigger(){
+        
+        if (!$this->isPost()) {
+            return $this->render('login');
+        }
+        $login_as_company = $_POST['login_as_company'];
+        if ($login_as_company == "on")
+            $this->login_company();
+        else
+            $this->login_user();
+    }
+    public function login_company()
+    {
+        $companiesRepository = new CompaniesRepository();
+        
+        if (!$this->isPost()) {
+            return $this->render('login');
+        }
+
+        $email = $_POST['email'];
+        $password = sha1($_POST['password']);
+        
+        $company = $companiesRepository->getCompany($email);
+        if (!$company) {
+            return $this->render('login', ['messages' => ['Company not found!']]);
+        }
+        if ($company->getEmail() !== $email) {
+            return $this->render('login', ['messages' => ['Company with this email does not exist!'.$user->getEmail()]]);
+        }
+
+        if ($company->getPassword() !== $password) {
+            return $this->render('login', ['messages' => ['Wrong password!']]);
+        }
+        session_start();
+        $_SESSION["loggedIn"] = true;
+        $_SESSION["email"] = $email;
+        //$userRepository->setKioskCode($user->getUser_id());
+        //$workTimeRepostiory = new WorkTimeRepository();
+        //$table = $workTimeRepostiory->getWorkTimeTable($user->getUser_id());
+        //$greeting = 'Hello '.$user->getName().' '.$user->getSurname().'!';
+        $companiesRepository = new CompaniesRepository();
+        //$company_info = array_values($companiesRepository->getCompany($user->getEmployer_id())[0]);
+        //$values = (array_values($company_info));
+        $mainPageController = new MainPageController();
+        $mainPageController -> render_company_base($companiesRepository);   
+    }
     
-    public function login()
+    public function login_user()
     {
         $userRepository = new UserRepository();
         
@@ -19,13 +65,13 @@ class SecurityController extends AppController
 
         $email = $_POST['email'];
         $password = sha1($_POST['password']);
-
+        
         $user = $userRepository->getUser($email);
         if (!$user) {
             return $this->render('login', ['messages' => ['User not found!']]);
         }
         if ($user->getEmail() !== $email) {
-            return $this->render('login', ['messages' => ['User with this email not exist!'.$user->getEmail()]]);
+            return $this->render('login', ['messages' => ['User with this email does not exist!'.$user->getEmail()]]);
         }
 
         if ($user->getPassword() !== $password) {
@@ -36,19 +82,19 @@ class SecurityController extends AppController
         $_SESSION["email"] = $email;
         $userRepository->setKioskCode($user->getUser_id());
         $workTimeRepostiory = new WorkTimeRepository();
-        $table = $workTimeRepostiory->getWorkTimeTable($user->getUser_id());
-        $greeting = 'Hello '.$user->getName().' '.$user->getSurname().'!';
+        //$table = $workTimeRepostiory->getWorkTimeTable($user->getUser_id());
+        //$greeting = 'Hello '.$user->getName().' '.$user->getSurname().'!';
         $companiesRepository = new CompaniesRepository();
-        $company_info = array_values($companiesRepository->getCompany($user->getEmployer_id())[0]);
-        $values = (array_values($company_info));
+        //$company_info = array_values($companiesRepository->getCompany($user->getEmployer_id())[0]);
+        //$values = (array_values($company_info));
         $mainPageController = new MainPageController();
         $mainPageController -> render_base($workTimeRepostiory, $userRepository, $companiesRepository);   
     }
 
-    public function register()
+    public function register_user()
     {
         if (!$this->isPost()) {
-            return $this->render('register');
+            return $this->render('register_user');
         }
 
         $email = $_POST['email'];
@@ -67,6 +113,30 @@ class SecurityController extends AppController
         var_dump($user);
 
         $userRepository->addUser($user);
+
+        return $this->render('login', ['messages' => ['You\'ve been succesfully registrated!']]);
+    }
+    public function register_company()
+    {
+        if (!$this->isPost()) {
+            return $this->render('register_company');
+        }
+
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $confirmedPassword = $_POST['confirmedPassword'];
+        $company_name = $_POST['company_name'];
+        $company_address = $_POST['company_address'];
+
+        if ($password !== $confirmedPassword) {
+            return $this->render('register', ['messages' => ['Please provide proper password']]);
+        }
+        $companiesRepository = new CompaniesRepository();
+        //TODO try to use better hash function
+        $company = new Company(1,$email, sha1($password), $company_name, $company_address, );
+        var_dump($company);
+
+        $companiesRepository->addCompany($company);
 
         return $this->render('login', ['messages' => ['You\'ve been succesfully registrated!']]);
     }

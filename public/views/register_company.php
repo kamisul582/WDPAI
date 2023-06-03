@@ -12,14 +12,14 @@
             <img src="public/img/logo.svg">
         </div>
         <div class="login-panel-container">
-            <form class="register" action="register" method="POST">
+            <form class="register" action="register_company" method="POST">
                 
                 <div>AAAAAAAAAAA\n\n\n</div>
                 <input name="email" type="text" placeholder="email@email.com">
                 <input name="password" type="password" placeholder="password">
                 <input name="confirmedPassword" type="password" placeholder="confirm password">
-                <input name="company_name" type="text" placeholder="name">
-                <input name="company_address" type="text" placeholder="surname">
+                <input name="company_name" type="text" placeholder="company name">
+                <input name="company_address" type="text" placeholder="company address">
                 <!--<input name="employer_id" type="text" placeholder="employer ID">-->
                 <button type="submit">REGISTER</button>
             </form>

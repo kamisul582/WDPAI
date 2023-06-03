@@ -11,7 +11,7 @@
             <img src="public/img/logo.svg">
         </div>
         <div class="login-panel-container">
-            <form class="login" action="login" method="POST">
+            <form class="login" action="login_trigger" method="POST">
                 
                 <div class="welcome">Welcome!</div>
                 <div class="login-container">
@@ -22,14 +22,17 @@
                     <div> password </div>
                     <input name="password" type="password" placeholder="password">
                 </div>
+                <input type="checkbox" id="loginAsCompany" name="login_as_company" />
+                <label for="loginAsCompany">Log in as company?</label>
                 <div class="small-text">
                     <div>forgot password?</div>
                 </div>
                 
                 
                 <button type="submit" >LOGIN</button>
-                <div class="register-link">
-                    <a href="register">Register here</a>
+                <div class="register-links">
+                    <a href="register_user">Register as worker</a>
+                    <a href="register_company">Register as company</a>
                 </div>
                 <div class="messages">
                     <?php if(isset($messages)){
