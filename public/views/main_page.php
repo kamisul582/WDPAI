@@ -63,7 +63,7 @@
                           let s = today.getSeconds();
                           m = checkTime(m);
                           s = checkTime(s);
-                          document.getElementById('txt').innerHTML = month + " " + day + " " + h + ":" + m + ":" + s;
+                          document.getElementById('txt').innerHTML = (month + " " + day + " " + h + ":" + m + ":" + s).trim();
                           setTimeout(startTime, 1000);
                         }
 
@@ -73,12 +73,12 @@
                         }
                         </script>
                         <?php if ($punched_in): ?>
-                            <form  method="POST" action="punch_in">
+                            <form  method="POST" action="enter_time">
                                 <button class= "red-button"type="submit" name="punch out">Punch out</button>
                             </form>
                         
                         <?php else: ?>
-                            <form  method="POST" action="punch_in">
+                            <form  method="POST" action="enter_time">
                                 <button class= "green-button" type="submit" name="punch in">Punch in</button>
                             </form>
                         <?php endif; ?>        

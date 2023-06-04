@@ -52,9 +52,16 @@ class SecurityController extends AppController
         //$company_info = array_values($companiesRepository->getCompany($user->getEmployer_id())[0]);
         //$values = (array_values($company_info));
         $mainPageController = new MainPageController();
-        $mainPageController -> render_company_base($companiesRepository);   
+        $mainPageController -> render_company_base($email,$companiesRepository);   
     }
-    
+    public function log_out(){
+        session_start();
+        setcookie(session_name(), '', 100);
+        session_unset();
+        session_destroy();
+        $_SESSION = array();
+        return $this->render('login');
+    }
     public function login_user()
     {
         $userRepository = new UserRepository();
@@ -80,7 +87,10 @@ class SecurityController extends AppController
         session_start();
         $_SESSION["loggedIn"] = true;
         $_SESSION["email"] = $email;
-        $userRepository->setKioskCode($user->getUser_id());
+        if ($user->getKiosk_code()==NULL){
+            $userRepository->setKioskCode($user->getUser_id());
+            var_dump($user);
+        }
         $workTimeRepostiory = new WorkTimeRepository();
         //$table = $workTimeRepostiory->getWorkTimeTable($user->getUser_id());
         //$greeting = 'Hello '.$user->getName().' '.$user->getSurname().'!';

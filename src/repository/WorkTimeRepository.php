@@ -47,8 +47,6 @@ class WorkTimeRepository extends Repository
             return TRUE;
         else 
             return FALSE;
-        
-        var_dump ($row);
 
     }
 }

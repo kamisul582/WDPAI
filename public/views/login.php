@@ -22,11 +22,15 @@
                     <div> password </div>
                     <input name="password" type="password" placeholder="password">
                 </div>
-                <input type="checkbox" id="loginAsCompany" name="login_as_company" />
-                <label for="loginAsCompany">Log in as company?</label>
                 <div class="small-text">
                     <div>forgot password?</div>
                 </div>
+                <div class="login-as-company-container">
+                    <label for="loginAsCompany">Log in as company?</label>
+                    <input type="checkbox" id="loginAsCompany" name="login_as_company" />
+                    
+                </div>
+                
                 
                 
                 <button type="submit" >LOGIN</button>

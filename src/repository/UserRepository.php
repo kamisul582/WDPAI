@@ -79,4 +79,29 @@ class UserRepository extends Repository
             $user->getKiosk_code(),
         ]);
     }
+
+    public function getUserByKioskCode(string $kiosk_code): ?User
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.users WHERE kiosk_code = :kiosk_code
+        ');
+        $stmt->bindParam(':kiosk_code', $kiosk_code, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user == false) {
+            return null;
+        }
+
+        return new User(
+            $user['user_id'],
+            $user['email'],
+            $user['password'],
+            $user['name'],
+            $user['surname'],
+            $user['employer_id'],
+            $user['kiosk_code']
+        );
+    }
 }
