@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/kiosk_mode.css">
 
     <script src="https://kit.fontawesome.com/723297a893.js" crossorigin="anonymous"></script>
-    <title>PROJECTS</title>
+    <title>Kiosk Mode</title>
 </head>
 
 <body onload="startTime()">

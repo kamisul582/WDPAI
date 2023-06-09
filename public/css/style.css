@@ -4,93 +4,61 @@ body {
 html *
 {
    font-family: Arial !important;
+   font-size: 2rem;
 }
-.container {
+
+
+.base-container{
     width: 100vw;
     height: 100vh;
     background: transparent linear-gradient(180deg, #FFE5EC 0%, #9796F0 100%) 0% 0% no-repeat padding-box;
+}
+.top-bar{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    font-family: Segoe UI;
+    justify-content: space-between;
+    box-shadow: 0px 3px 6px 7px #00000048;   
 }
-
-.logo {
-    width: 60%;
-    margin-bottom: 20%;
-    height: auto;
-    text-align: center;
-}
-.logo-bottom {
-    position: absolute;
-    bottom: 0;
-    width: 20%;
-    height: auto;
-    text-align: justify;
-    align-items: center;
-    margin-left: 40%;
-    margin-right: 30%;
-}
-.logo-bottom-right {
-    position: absolute;
-    bottom: 0;
-    width: 30%;
-    height: auto;
-    text-align: left;
-    align-items: center;
-    margin-bottom: 5%;
-}
-
-.login-panel-container {
-    width: 30%;
-    margin-bottom: 20%;
+.page-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 5rem;
+}
+.page-container > * {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: center;
     
-    justify-content: start;
-
-}
-
-form.login, form.register {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    font-size: 1em;
-    align-items: stretch;
-    width: 80%;
-    height: 50vh;
-}
-.register-links{
-    padding-left: 25%;
-}
-.welcome {
-    font-size: 3.5rem;
-    padding-bottom: 0.3em;
-}
-.login-as-company-container{
-    all: unset;
+    justify-content: space-between;
+    border: solid 3px #00000048;
+  }
+  .time-container,.company-address,.company-name,.work-time-table,.kiosk-code{
     display: flex;
     flex-direction: row;
+    box-sizing: border-box;
+    align-items: center;
+    
     justify-content: left;
+    border: solid 3px #00000048;
+  }
+  .time-container > *, .company-address > *,.company-name > * ,.kiosk-code > *{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+.top-bar-left{
+    float: left;
 }
-.login-container {
+.top-bar-right {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    font-size: 1.2em;
-}
-.password-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.2em;
-}
-.green-button {
-    background-color: #4CAF50;
+  }
+
+
+
+  .green-button,.red-button {
     border: none;
+    border-radius: 19px;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -99,20 +67,16 @@ form.login, form.register {
     font-size: 24px;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+.green-button {
+    background-color: #4CAF50;
 }
 .red-button {
     background-color: #ff4949;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 24px;
-    margin: 4px 2px;
-    cursor: pointer;
 }
-.work-time-table {
+  .work-time-table {
+    padding-left: 2rem;
     overflow-y: auto;
     height: 200px;
   }
@@ -141,250 +105,5 @@ th, td {
     border-collapse: collapse;
     padding: 8px 16px;
     border: 1px solid #ccc;
-  }
-.small-text {
-    color: #707070;
-    text-decoration: underline;
-    padding-left: 50%;
     font-size: 0.7em;
-}
-
-button {
-    background-color: rgba(255, 255, 255, 0.918);
-    box-shadow: 0px 3px 6px #00000029;
-    border-radius: 19px;
-    width: 50%;
-    border: none;
-    color: black;
-    margin: 1em;
-    margin-left: 25%;
-    line-height: 2.5em;
-}
-
-input {
-    background-color: #332580 100%;
-    padding: 0.3em;
-    margin: 0.3em;
-    width: 50%;
-    
-    
-    border: 2px solid black;
-}
-
-.base-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    height: 100vh;
-    background: transparent linear-gradient(180deg, #FFE5EC 0%, #9796F0 100%) 0% 0% no-repeat padding-box;
-    font-family: Segoe UI;
-}
-
-nav {
-    width: 100vw;
-    height: 100%;
-    background:#FFE5EC;
-    box-shadow: 0px 3px 6px 7px #00000048;
-}
-
-main {
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-}
-
-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: normal;
-    margin-right: 5%;
-}
-
-.left {
-    width: 50%;
-    margin-left: 5%;
-}
-.greeting {
-    font-family: Segoe UI;
-    font-size: 1.2em;
-    width: 150%;
-    justify-items: stretch;
-    white-space: nowrap;
-}
-.right {
-    display: flex;
-    flex-direction: row;
-    margin-right: 5%;
-}
-.chevron {
-    padding-top: 15%;
-    width: 100%;
-    height: 40%;
-}
-nav>div>img {
-    object-fit: contain;
-   max-width: 100%;
-   max-height: 100%;
-   width: auto;
-   height: auto;
-    
-}
-
-a {
-    text-decoration: none;
-    display: inline-block;
-    line-height: 2em;
-}
-
-li i {
-    font-size: 1.5em;
-}
-
-.button {
-    border: 1px solid #FFFFFF;
-    border-radius: 1em;
-    margin-left: 1em;
-    text-align: center;
-    letter-spacing: 0.72px;
-    color: #FFFFFF;
-    padding: 0.2rem;
-    width: 60%;
-}
-
-ul {
-    list-style-type: none;
-    font: normal normal normal 20px/27px Segoe UI;
-    letter-spacing: 0.72px;
-    color: #FFFFFF;
-    height: 100%;
-    width: calc(100% - 40px);
-    position: relative;
-    margin: 0 auto;
-    padding: 0;
-}
-
-li {
-    text-align: left;
-    color: white;
-    margin-bottom: 1em;
-}
-
-li:last-child {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-.top-container {
-    display: flex;
-    flex-direction: row;
-}
-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 1em 2em;
-    border-bottom: 1px solid gray;
-}
-.vertical-company-info-container{
-    display: flex;
-    flex-direction: column;
-    /*justify-content: space-around;*/
-}
-.vertical-company-info-container>*{
-    margin-top: 5%;
-    margin-left: 5%;
-}
-.horizontal-company-info-container{
-    display: flex;
-    flex-direction: row;
-    /*justify-content: space-around;*/
-}
-.time-container, .company-name, .company-address {
-    display: flex;
-    flex-direction: row;
-    white-space: nowrap;
-    font-size: 24px;
-    display: inline-block;
-}
-.time-container{
-    white-space: nowrap !important;
-}
-.company-info-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 5%;
-}
-.kiosk-container {
-    margin-left: 60%;
-}
-
-.add-project {
-    background: #2E6CD3 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
-    border-radius: 1.5em;
-    color: white;
-    letter-spacing: 0.1em;
-    text-align: center;
-    width: 20%;
-}
-
-.add-project>i {
-    padding: 1em 1em;
-}
-
-.search-bar {
-    width: 70%;
-}
-
-.search-bar>form>input {
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
-    border: 1px solid #707070;
-    border-radius: 23px;
-    width: 100%;
-    text-align: center;
-    letter-spacing: 0.72px;
-    color: #A8A8A8;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-@media only screen and (max-device-width: 420px) {
-    .container {
-        flex-direction: column;
-    }
-    *:not(.welcome) {
-        font-size: 48px;
-    }
-    .login-panel-container {
-        width: 100%;
-    }
-    .logo {
-        width: 40%;
-        margin-bottom: 0;
-    }
-    form {
-        margin: auto;
-    }
-    .company-info-container{
-        flex-direction: column;
-    }
-    nav>*>img {
-        width: 10%;
-        height: 10%;
-        
-    }
-    .company-info-container>*>img{
-        width: 10%;
-    }
-
-}
-
+  }
