@@ -5,25 +5,26 @@
     <link rel="stylesheet" type="text/css" href="public/css/kiosk_mode.css">
 
     <script src="https://kit.fontawesome.com/723297a893.js" crossorigin="anonymous"></script>
-    <title>Kiosk Mode</title>
+    <title>Kiosk mode</title>
 </head>
-
 <body onload="startTime()">
-    <div class="base-container">
-        <div class="top-bar-container">
-            <nav>
-                <div class ="left">
-                    <img src="public/img/home-03.png">
-                </div>
-                <div class ="right">
-                    <img src="public/img/user-square.png">
-                    <img  class="chevron" src="public/img/chevron-down.png">
-                    <a href="log_out"> <img src="public/img/log-out-03.png"></a>
-                </div>
-            </nav>
+<div class="base-container">
+    <div class="top-bar">
+        <img class="top-bar-left" src="public/img/home-03.png">
+        <div class="top-bar-right">
+        <div class="greeting">
+        <?php if(isset($messages)){
+            foreach ($messages as $message){
+            echo $message;
+            }
+        }
+        ?>
         </div>
-        
-       
+
+        <img src="public/img/user-square.png">
+        <a href="log_out"> <img src="public/img/log-out-03.png"></a>
+        </div>
+    </div>
         <main>
         <div class="top-container">
             
@@ -64,6 +65,10 @@
                           return i;
                         }
                         </script>
+                
+                
+                </div>
+                </div>
                 <div class="kiosk-container">
                     <div>Enter Kiosk code</div>
                     <form class="kiosk-code" action="enter_kiosk_code" method="POST">
@@ -71,7 +76,8 @@
                         <button type="submit" >Submit</button>
                     </form>
                 </div>
-                <div class="logo-bottom">
+                </div>
+                <div class="logo-kiosk">
                     <img src="public/img/logo.svg">
                 </div>
         </main>

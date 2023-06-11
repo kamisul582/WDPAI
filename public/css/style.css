@@ -7,8 +7,17 @@ html *
    font-size: 2rem;
 }
 p{
+  margin: 0;
+  padding-top: 1rem;
   font-size: 4rem;
   font-weight: bold;
+  display: flex;
+}
+h6{
+  font-size: 1rem;
+  color: #707070;
+  text-decoration: underline;
+  padding-left: 50%;
 }
 
 .base-container{
@@ -22,22 +31,26 @@ p{
     justify-content: space-between;
     box-shadow: 0px 3px 6px 7px #00000048;   
 }
-.page-container {
+
+.page-container,.top-container{
     display: flex;
     height: 80%;
     flex-wrap: wrap;
     padding-left: 5rem;
 }
-.page-container > * {
+
+.page-container > * ,.top-container > * {
     width: 50%;
-    padding: 10px;
     box-sizing: border-box;
     align-items: center;
     
     justify-content: space-between;
     border: solid 3px #00000048;
   }
-  .time-container,.company-address,.company-name,.work-time-table,.kiosk-code{
+  .top-container > *{
+    width: 100%;
+  }
+  .time-container,.company-address,.company-name,.work-time-table,.kiosk-code,.horizontal-company-info-container{
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
@@ -46,12 +59,15 @@ p{
     justify-content: left;
     border: solid 3px #00000048;
   }
+  .company-name,.time-container, .company-address{
+    padding-top: 1rem;
+  }
   .time-container > *, .company-address > *,.company-name > * ,.kiosk-code > *{
     padding-left: 1rem;
     padding-right: 1rem;
   }
   .time-container{
-    padding-bottom: 2rem;
+    padding-bottom: 0rem;
   }
 .top-bar-left{
     float: left;
@@ -59,9 +75,14 @@ p{
 .top-bar-right {
     display: flex;
     align-items: center;
+    
   }
-
-
+  .top-bar-right > *{
+    padding-right: 1rem;
+  }
+  .top-bar-left > *{
+    padding-left: 1rem;
+  }
 
   .green-button,.red-button {
     border: none;
@@ -114,4 +135,106 @@ th, td {
     border: 1px solid #ccc;
     font-size: 0.7em;
   }
+  .kiosk-code{
+    align-items:center;
+    padding-top: 1rem;
+  }
+  .kiosk-container{
+    margin-top: 2rem;
+  }
 
+  .logo ,.logo-kiosk{
+    
+    width: auto;
+    margin-right: 30%;
+    margin-left: auto;
+    
+    height: 50%;
+    text-align: left;
+}
+.logo-kiosk {
+   
+  width: 30%;
+  margin-right: 40%;
+  margin-left: auto;
+  
+  height: auto;
+  text-align: left;
+}
+
+
+
+@media only screen and (max-device-width: 420px) {
+  .page-container > * ,.top-container > *{
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    
+    justify-content: space-between;
+    border: solid 3px #00000048;
+  }
+  .top-container > *{
+    align-items: start;
+  }
+  .base-container {
+      flex-direction: column;
+  }
+  .page-container,.top-container{
+    display: flex;
+    height: 80%;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+.horizontal-company-info-container{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: normal;
+  
+  justify-content: left;
+}
+.time-container > *, .company-address > *,.company-name > * ,.kiosk-code > *{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.kiosk-code{
+  padding-top: 0;
+}
+.time-container{
+  padding-bottom: 1rem;
+}
+  *:not(.welcome) {
+      font-size: 48px;
+  }
+
+  .logo {
+      width: 50%;
+      margin-bottom: 0;
+      margin-right: 25%;
+  }
+  .logo-kiosk{
+    width: 50%;
+    margin-bottom: 0;
+    margin-right: 25%;
+  }
+  form {
+      margin: auto;
+  }
+  .company-info-container{
+      flex-direction: column;
+  }
+  .work-time-table {
+    padding-left: 0;
+  }
+  nav>*>img {
+      width: 10%;
+      height: 10%;    
+  }
+  .kiosk-container{
+    margin-left: 10%;
+  }
+  .company-info-container>*>img{
+      width: 10%;
+  }
+
+}

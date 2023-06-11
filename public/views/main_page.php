@@ -100,8 +100,12 @@
                                     echo $kiosk_code;}
                                 ?>
                         </p>
+                        
                     </div>
+                        <div class="logo">
+                            <img src="public/img/logo.svg">
                         </div>
+                    </div>
                     </div>
                 </div>
 

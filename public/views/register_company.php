@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/login.css">
     <script type="text/javascript" src="./public/js/script.js" defer></script>
     <title>REGISTER</title>
 </head>
@@ -12,17 +12,37 @@
             <img src="public/img/logo.svg">
         </div>
         <div class="login-panel-container">
+        <div class="welcome">Register Company</div>
             <form class="register" action="register_company" method="POST">
+                            
                 
-                <div>AAAAAAAAAAA\n\n\n</div>
-                <input name="email" type="text" placeholder="email@email.com">
-                <input name="password" type="password" placeholder="password">
-                <input name="confirmedPassword" type="password" placeholder="confirm password">
-                <input name="company_name" type="text" placeholder="company name">
-                <input name="company_address" type="text" placeholder="company address">
-                <!--<input name="employer_id" type="text" placeholder="employer ID">-->
+                <div class="login-container">
+                    <div> email </div>
+                    <input name="email" type="text" placeholder="email@email.com">
+                </div>
+                <div class="login-container">
+                    <div> password </div>
+                    <input name="password" type="password" placeholder="password">
+                </div>
+                <div class="login-container">
+                    <div> password </div>
+                    <input name="confirmedPassword" type="password" placeholder="confirm password">
+                </div>
+                <div class="login-container">
+                    <div> company name </div>
+                    <input name="company_name" type="text" placeholder="company name">
+                </div>
+                <div class="login-container">
+                    <div> address </div>
+                    <input name="company_address" type="text" placeholder="company address">
+               </div>
+                
                 <button type="submit">REGISTER</button>
             </form>
+            <div class="register-links">
+                    <a href="register_user">Register as worker</a>
+                    <a href="log_out">Log in</a>
+                </div>
             <div class="messages">
                     <?php if(isset($messages)){
                         foreach ($messages as $message){
