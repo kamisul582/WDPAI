@@ -27,49 +27,48 @@
     </div>
     <div class="page-container">
         <div class="vertical-container">
-        <div class="company-name">
+            <div class="company-name">
                     <img src="public/img/building-03.png">
                     <?php if(isset($company_name)){
                             echo $company_name;}
                         ?>
-                </div>
-                <div class="company-address">
+            </div>
+            <div class="company-address">
                     <img src="public/img/marker-pin-01.png">
                     <?php if(isset($company_address)){
                             echo $company_address;}
                         ?>
-                </div>
-                <div class="time-container">
-                    <img src="public/img/clock.png">
-                    <div id="txt"></div>
-                    <script>
-                        function startTime() {
-                          const today = new Date();
-                          const options = { month: "long" };
-                          let month = new Intl.DateTimeFormat("en-US", options).format(today)
-                          let day = today.getDate();
-                          let h = today.getHours();
-                          let m = today.getMinutes();
-                          let s = today.getSeconds();
-                          m = checkTime(m);
-                          s = checkTime(s);
-                          document.getElementById('txt').innerHTML = (month + " " + day + " " + h + ":" + m + ":" + s).trim();
-                          setTimeout(startTime, 1000);
-                        }
-
-                        function checkTime(i) {
-                          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-                          return i;
-                        }
-                        </script>
-                        <?php if ($punched_in): ?>
-                            <form  method="POST" action="enter_time">
-                                <button class= "red-button"type="submit" name="punch out">Punch out</button>
-                            </form>
-                        
-                        <?php else: ?>
-                            <form  method="POST" action="enter_time">
-                                <button class= "green-button" type="submit" name="punch in">Punch in</button>
+            </div>
+            <div class="time-container">
+                <img src="public/img/clock.png">
+                <div id="txt"></div>
+                <script>
+                    function startTime() {
+                      const today = new Date();
+                      const options = { month: "long" };
+                      let month = new Intl.DateTimeFormat("en-US", options).format(today)
+                      let day = today.getDate();
+                      let h = today.getHours();
+                      let m = today.getMinutes();
+                      let s = today.getSeconds();
+                      m = checkTime(m);
+                      s = checkTime(s);
+                      document.getElementById('txt').innerHTML = (month + " " + day + " " + h + ":" + m + ":" + s).trim();
+                      setTimeout(startTime, 1000);
+                    }
+                    function checkTime(i) {
+                      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+                      return i;
+                    }
+                </script>
+                    <?php if ($punched_in): ?>
+                        <form  method="POST" action="enter_time">
+                            <button class= "red-button"type="submit" name="punch out">Punch out</button>
+                        </form>
+                    
+                    <?php else: ?>
+                        <form  method="POST" action="enter_time">
+                            <button class= "green-button" type="submit" name="punch in">Punch in</button>
                             </form>
                         <?php endif; ?> 
                     </div>  
@@ -92,11 +91,18 @@
                             <?php endif; ?>
                         </div>     
                 </div>
+                <div class="right-vertical-container">
+                <div class="code-text">    
                 <div class="kiosk-code">
-                    <div> Kiosk code</div>
-                    <?php if(isset($kiosk_code)){
-                            echo $kiosk_code;}
-                        ?>
+                        <div> Kiosk code</div>
+                        <p>
+                            <?php if(isset($kiosk_code)){
+                                    echo $kiosk_code;}
+                                ?>
+                        </p>
+                    </div>
+                        </div>
+                    </div>
                 </div>
 
         </div>

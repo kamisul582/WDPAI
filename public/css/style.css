@@ -6,7 +6,10 @@ html *
    font-family: Arial !important;
    font-size: 2rem;
 }
-
+p{
+  font-size: 4rem;
+  font-weight: bold;
+}
 
 .base-container{
     width: 100vw;
@@ -21,6 +24,7 @@ html *
 }
 .page-container {
     display: flex;
+    height: 80%;
     flex-wrap: wrap;
     padding-left: 5rem;
 }
@@ -45,6 +49,9 @@ html *
   .time-container > *, .company-address > *,.company-name > * ,.kiosk-code > *{
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+  .time-container{
+    padding-bottom: 2rem;
   }
 .top-bar-left{
     float: left;
@@ -78,7 +85,7 @@ html *
   .work-time-table {
     padding-left: 2rem;
     overflow-y: auto;
-    height: 200px;
+    height: 60%;
   }
   .work-time-table thead th {
     position: sticky;
@@ -107,3 +114,4 @@ th, td {
     border: 1px solid #ccc;
     font-size: 0.7em;
   }
+
