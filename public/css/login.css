@@ -159,11 +159,19 @@ header {
     }
     .logo {
         width: 50%;
+        padding-top: 30%;
+        margin-top: 0;
         margin-bottom: 0;
         margin: 0;
     }
     form {
         margin: auto;
+    }
+    form.login, form.register {
+        width:90%;
+    }
+    input{
+        width: 70%;
     }
     .company-info-container{
         flex-direction: column;

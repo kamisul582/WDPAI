@@ -89,7 +89,6 @@ class SecurityController extends AppController
         $_SESSION["email"] = $email;
         if ($user->getKiosk_code()==NULL){
             $userRepository->setKioskCode($user->getUser_id());
-            var_dump($user);
         }
         $workTimeRepostiory = new WorkTimeRepository();
         //$table = $workTimeRepostiory->getWorkTimeTable($user->getUser_id());
@@ -120,11 +119,10 @@ class SecurityController extends AppController
         $userRepository = new UserRepository();
         //TODO try to use better hash function
         $user = new User(1,$email, sha1($password), $name, $surname, $employer_id,"abcd");
-        var_dump($user);
 
         $userRepository->addUser($user);
 
-        return $this->render('login', ['messages' => ['You\'ve been succesfully registrated!']]);
+        return $this->render('login', ['messages' => ['You\'ve been succesfully registered!']]);
     }
     public function register_company()
     {
@@ -144,10 +142,9 @@ class SecurityController extends AppController
         $companiesRepository = new CompaniesRepository();
         //TODO try to use better hash function
         $company = new Company(1,$email, sha1($password), $company_name, $company_address, );
-        var_dump($company);
 
         $companiesRepository->addCompany($company);
 
-        return $this->render('login', ['messages' => ['You\'ve been succesfully registrated!']]);
+        return $this->render('login', ['messages' => ['You\'ve been succesfully registered!']]);
     }
 }

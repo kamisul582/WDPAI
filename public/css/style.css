@@ -45,7 +45,6 @@ h6{
     align-items: center;
     
     justify-content: space-between;
-    border: solid 3px #00000048;
   }
   .top-container > *{
     width: 100%;
@@ -57,7 +56,6 @@ h6{
     align-items: center;
     
     justify-content: left;
-    border: solid 3px #00000048;
   }
   .company-name,.time-container, .company-address{
     padding-top: 1rem;
@@ -143,21 +141,23 @@ th, td {
     margin-top: 2rem;
   }
 
-  .logo ,.logo-kiosk{
+  .logo{
     
-    width: auto;
+    width: 30;
     margin-right: 30%;
     margin-left: auto;
     
-    height: 50%;
+    height: auto;
     text-align: left;
 }
-.logo-kiosk {
-   
+.right-vertical-container{
   width: 30%;
+}
+.logo-kiosk {
+  
+  width: 20%;
   margin-right: 40%;
   margin-left: auto;
-  
   height: auto;
   text-align: left;
 }
@@ -171,7 +171,6 @@ th, td {
     align-items: center;
     
     justify-content: space-between;
-    border: solid 3px #00000048;
   }
   .top-container > *{
     align-items: start;
@@ -199,6 +198,9 @@ th, td {
 }
 .kiosk-code{
   padding-top: 0;
+}
+.right-vertical-container{
+  width: 100%;
 }
 .time-container{
   padding-bottom: 1rem;

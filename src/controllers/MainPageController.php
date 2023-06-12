@@ -71,9 +71,9 @@ class MainPageController extends AppController {
         if ($company == NULL){
             return $this->render('login', ['messages' => ['You need to be logged in!']]);
         }
-        $company -> getCompanyId();
-        $company_info = array_values($companiesRepository->getCompanyInfo($company -> getCompanyId())[0]);
-        return $this->render('kiosk_mode',['company_name' => $company_info[0],'company_address' => $company_info[1]]);
+        $id = $company -> getCompanyId();
+        $company_info = array_values($companiesRepository->getCompanyInfo($id)[0]);
+        return $this->render('kiosk_mode',['company_name' => $company_info[0],'company_address' => $company_info[1],'company_id'=>$id]);
     }
     
 }

@@ -68,6 +68,12 @@
                 
                 
                 </div>
+                <div class="company-address">
+                    <div> Employer ID </div>
+                    <?php if(isset($company_id)){
+                            echo $company_id;}
+                        ?>
+                </div>
                 </div>
                 <div class="kiosk-container">
                     <div>Enter Kiosk code</div>

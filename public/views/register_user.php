@@ -14,7 +14,7 @@
         
         <div class="login-panel-container">
         <div class="welcome">Register User</div>
-            <form class="register" action="register" method="POST">
+            <form class="register" action="register_user" method="POST">
                 
                 <div class="login-container">
                     <div> email </div>

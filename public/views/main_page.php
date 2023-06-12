@@ -73,7 +73,7 @@
                         <?php endif; ?> 
                     </div>  
                         <div class="work-time-table">
-                            <?php if (isset($table) or True): ?>
+                            <?php if (isset($table)): ?>
                                 <table>
                                     <thead>
                                         <tr>

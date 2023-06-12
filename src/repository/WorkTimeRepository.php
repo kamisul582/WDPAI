@@ -16,7 +16,6 @@ class WorkTimeRepository extends Repository
         if (empty($table)) {
             return NULL;
         }
-        #var_dump($table);
         return $table;
     }
      public function insertTime(int $user_id, $date, $time){
